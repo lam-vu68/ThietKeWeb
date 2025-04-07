@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Chuyên cung cấp các loại xe ô tô chất lượng cao với giá cả hợp lý"
+      content="Chi tiết tin tức về ô tô và thị trường xe hơi Việt Nam"
     />
-    <title>AutoDrive - Đại lý ô tô uy tín hàng đầu</title>
+    <title>Chi tiết tin tức - AutoDrive</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,6 +17,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/news.css" />
   </head>
   <body>
     <!-- Header & Navbar -->
@@ -38,49 +39,82 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link active" href="index.html">Trang chủ</a>
+                <a class="nav-link" href="index.html" data-lang="home"
+                  >Trang chủ</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="cars.html">Danh sách xe</a>
+                <a class="nav-link" href="cars.html" data-lang="cars"
+                  >Danh sách xe</a
+                >
               </li>
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="nav-link"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
+                  data-lang="categories"
                 >
                   Danh mục xe
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="cars.html?type=sedan"
+                    <a
+                      class="dropdown-item"
+                      href="cars.html?type=sedan"
+                      data-lang="sedan"
                       >Sedan</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="cars.html?type=suv">SUV</a>
+                    <a
+                      class="dropdown-item"
+                      href="cars.html?type=suv"
+                      data-lang="suv"
+                      >SUV</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="cars.html?type=hatchback"
+                    <a
+                      class="dropdown-item"
+                      href="cars.html?type=hatchback"
+                      data-lang="hatchback"
                       >Hatchback</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="cars.html?type=luxury"
+                    <a
+                      class="dropdown-item"
+                      href="cars.html?type=luxury"
+                      data-lang="luxury"
                       >Xe sang</a
                     >
                   </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">Giới thiệu</a>
+                <a class="nav-link" href="about.html" data-lang="about"
+                  >Giới thiệu</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="news.html">Tin tức</a>
+                <a class="nav-link active" href="news.html" data-lang="news"
+                  >Tin tức</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Liên hệ</a>
+                <a class="nav-link" href="contact.html" data-lang="contact"
+                  >Liên hệ</a
+                >
+              </li>
+              <li class="nav-item">
+                <button
+                  id="language-switcher"
+                  class="btn btn-sm btn-outline-light ms-2"
+                >
+                  EN <i class="fas fa-globe ms-1"></i>
+                </button>
               </li>
             </ul>
           </div>
@@ -88,527 +122,730 @@
       </nav>
     </header>
 
-    <!-- Hero Section with Carousel -->
-    <section id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#hero-carousel"
-          data-bs-slide-to="0"
-          class="active"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#hero-carousel"
-          data-bs-slide-to="1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#hero-carousel"
-          data-bs-slide-to="2"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="images/banner1.jpg"
-            class="d-block w-100"
-            alt="Luxury Car"
-          />
-          <div class="carousel-caption">
-            <h1>Khám phá bộ sưu tập xe sang</h1>
-            <p>Trải nghiệm đẳng cấp và sự sang trọng với các mẫu xe mới nhất</p>
-            <a href="cars.html" class="btn btn-primary btn-lg">Xem ngay</a>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img
-            src="images/banner2.jpg"
-            class="d-block w-100"
-            alt="SUV Collection"
-          />
-          <div class="carousel-caption">
-            <h1>SUV đa dụng cho mọi địa hình</h1>
-            <p>Mạnh mẽ, bền bỉ và an toàn cho mọi chuyến đi</p>
-            <a href="cars.html?type=suv" class="btn btn-primary btn-lg"
-              >Khám phá</a
-            >
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img
-            src="images/banner3.jpg"
-            class="d-block w-100"
-            alt="Special Offer"
-          />
-          <div class="carousel-caption">
-            <h1>Ưu đãi đặc biệt tháng này</h1>
-            <p>Giảm giá lên đến 10% và nhiều quà tặng hấp dẫn</p>
-            <a href="promotion.html" class="btn btn-primary btn-lg"
-              >Xem ưu đãi</a
-            >
-          </div>
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#hero-carousel"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#hero-carousel"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon"></span>
-      </button>
-    </section>
-
-    <!-- Search Section -->
-    <section id="search-section" class="py-5">
+    <!-- Page Header -->
+    <section class="page-header bg-primary text-white py-5 mb-5">
       <div class="container">
-        <div class="search-container bg-light p-4 rounded shadow">
-          <h2 class="text-center mb-4">Tìm kiếm xe phù hợp</h2>
-          <form id="car-search-form">
-            <div class="row g-3">
-              <div class="col-md-3">
-                <select class="form-select" id="brand">
-                  <option value="">Chọn hãng xe</option>
-                  <option value="toyota">Toyota</option>
-                  <option value="honda">Honda</option>
-                  <option value="ford">Ford</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="bmw">BMW</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </div>
-              <div class="col-md-3">
-                <select class="form-select" id="car-type">
-                  <option value="">Loại xe</option>
-                  <option value="sedan">Sedan</option>
-                  <option value="suv">SUV</option>
-                  <option value="hatchback">Hatchback</option>
-                  <option value="luxury">Xe sang</option>
-                </select>
-              </div>
-              <div class="col-md-3">
-                <select class="form-select" id="price-range">
-                  <option value="">Khoảng giá</option>
-                  <option value="500-1000">500 - 1000 triệu</option>
-                  <option value="1000-2000">1 - 2 tỷ</option>
-                  <option value="2000-5000">2 - 5 tỷ</option>
-                  <option value="5000+">Trên 5 tỷ</option>
-                </select>
-              </div>
-              <div class="col-md-3">
-                <button type="submit" class="btn btn-primary w-100">
-                  Tìm kiếm
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Cars Section -->
-    <section id="featured-cars" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-5">Xe nổi bật</h2>
         <div class="row">
-          <!-- Car 1 -->
-          <div class="col-md-4 mb-4">
-            <div class="card car-card h-100">
-              <div class="position-relative">
-                <img
-                  src="images/car1.jpg"
-                  class="card-img-top"
-                  alt="Mercedes S-Class"
-                />
-                <span class="badge bg-danger position-absolute top-0 end-0 m-2"
-                  >Mới</span
+          <div class="col-md-8">
+            <h1>Chi tiết tin tức</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="index.html" class="text-white">Trang chủ</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="news.html" class="text-white">Tin tức</a>
+                </li>
+                <li
+                  class="breadcrumb-item active text-white"
+                  aria-current="page"
                 >
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Mercedes S-Class 2023</h5>
-                <div class="car-features mb-3">
-                  <span><i class="fas fa-car"></i> Sedan</span>
-                  <span><i class="fas fa-gas-pump"></i> Xăng</span>
-                  <span><i class="fas fa-cog"></i> Tự động</span>
-                </div>
-                <p class="card-text">
-                  Sang trọng đẳng cấp với thiết kế hiện đại và công nghệ tiên
-                  tiến.
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="price">5.2 tỷ</span>
-                  <a href="car-detail.html?id=1" class="btn btn-outline-primary"
-                    >Chi tiết</a
-                  >
-                </div>
-              </div>
-            </div>
+                  Chi tiết tin tức
+                </li>
+              </ol>
+            </nav>
           </div>
-
-          <!-- Car 2 -->
-          <div class="col-md-4 mb-4">
-            <div class="card car-card h-100">
-              <div class="position-relative">
-                <img
-                  src="images/car2.jpg"
-                  class="card-img-top"
-                  alt="Toyota Land Cruiser"
-                />
-                <span class="badge bg-success position-absolute top-0 end-0 m-2"
-                  >Bán chạy</span
-                >
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Toyota Land Cruiser 2023</h5>
-                <div class="car-features mb-3">
-                  <span><i class="fas fa-car"></i> SUV</span>
-                  <span><i class="fas fa-gas-pump"></i> Dầu</span>
-                  <span><i class="fas fa-cog"></i> Tự động</span>
-                </div>
-                <p class="card-text">
-                  Mạnh mẽ và bền bỉ, chinh phục mọi địa hình với khả năng vượt
-                  trội.
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="price">4.1 tỷ</span>
-                  <a href="car-detail.html?id=2" class="btn btn-outline-primary"
-                    >Chi tiết</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Car 3 -->
-          <div class="col-md-4 mb-4">
-            <div class="card car-card h-100">
-              <div class="position-relative">
-                <img
-                  src="images/car3.jpg"
-                  class="card-img-top"
-                  alt="Honda Civic"
-                />
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Honda Civic 2023</h5>
-                <div class="car-features mb-3">
-                  <span><i class="fas fa-car"></i> Sedan</span>
-                  <span><i class="fas fa-gas-pump"></i> Xăng</span>
-                  <span><i class="fas fa-cog"></i> Tự động</span>
-                </div>
-                <p class="card-text">
-                  Thiết kế thể thao, tiết kiệm nhiên liệu và trang bị công nghệ
-                  hiện đại.
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="price">730 triệu</span>
-                  <a href="car-detail.html?id=3" class="btn btn-outline-primary"
-                    >Chi tiết</a
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-4">
-          <a href="cars.html" class="btn btn-primary btn-lg">Xem tất cả xe</a>
         </div>
       </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="why-choose-us" class="py-5 bg-light">
+    <!-- News Detail Section -->
+    <section id="news-detail" class="py-5">
       <div class="container">
-        <h2 class="text-center mb-5">Tại sao chọn AutoDrive?</h2>
         <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="feature-box text-center p-4">
-              <div class="feature-icon mb-3">
-                <i class="fas fa-car-alt fa-3x text-primary"></i>
-              </div>
-              <h4>Đa dạng mẫu mã</h4>
-              <p>
-                Hơn 200 mẫu xe từ các thương hiệu hàng đầu thế giới, đáp ứng mọi
-                nhu cầu và ngân sách.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="feature-box text-center p-4">
-              <div class="feature-icon mb-3">
-                <i class="fas fa-shield-alt fa-3x text-primary"></i>
-              </div>
-              <h4>Bảo hành toàn diện</h4>
-              <p>
-                Chế độ bảo hành lên đến 5 năm và dịch vụ hậu mãi chu đáo, tận
-                tâm.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="feature-box text-center p-4">
-              <div class="feature-icon mb-3">
-                <i class="fas fa-money-bill-wave fa-3x text-primary"></i>
-              </div>
-              <h4>Hỗ trợ tài chính</h4>
-              <p>
-                Đa dạng phương thức thanh toán và hỗ trợ vay ngân hàng với lãi
-                suất ưu đãi.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-5">Khách hàng nói gì về chúng tôi</h2>
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="testimonial-card p-4 bg-white shadow rounded h-100">
-              <div class="testimonial-rating mb-3">
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-              </div>
-              <p class="testimonial-text">
-                "Tôi rất hài lòng với chiếc Mercedes GLC mà tôi đã mua từ
-                AutoDrive. Dịch vụ chăm sóc khách hàng tuyệt vời và quy trình
-                mua xe rất thuận tiện."
-              </p>
-              <div class="testimonial-author d-flex align-items-center mt-3">
-                <img
-                  src="images/customer1.jpg"
-                  alt="Nguyễn Văn A"
-                  class="rounded-circle me-3"
-                  width="50"
-                  height="50"
-                />
-                <div>
-                  <h6 class="mb-0">Nguyễn Văn A</h6>
-                  <small class="text-muted">Giám đốc công ty ABC</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="testimonial-card p-4 bg-white shadow rounded h-100">
-              <div class="testimonial-rating mb-3">
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-              </div>
-              <p class="testimonial-text">
-                "Đội ngũ tư vấn rất nhiệt tình và chuyên nghiệp. Họ đã giúp tôi
-                tìm được chiếc xe phù hợp với nhu cầu và ngân sách của gia
-                đình."
-              </p>
-              <div class="testimonial-author d-flex align-items-center mt-3">
-                <img
-                  src="images/customer2.jpg"
-                  alt="Trần Thị B"
-                  class="rounded-circle me-3"
-                  width="50"
-                  height="50"
-                />
-                <div>
-                  <h6 class="mb-0">Trần Thị B</h6>
-                  <small class="text-muted">Kỹ sư IT</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="testimonial-card p-4 bg-white shadow rounded h-100">
-              <div class="testimonial-rating mb-3">
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star text-warning"></i>
-                <i class="fas fa-star-half-alt text-warning"></i>
-              </div>
-              <p class="testimonial-text">
-                "Chế độ bảo hành và dịch vụ sau bán hàng của AutoDrive thực sự
-                ấn tượng. Tôi sẽ tiếp tục quay lại đây cho lần mua xe tiếp
-                theo."
-              </p>
-              <div class="testimonial-author d-flex align-items-center mt-3">
-                <img
-                  src="images/customer3.jpg"
-                  alt="Lê Văn C"
-                  class="rounded-circle me-3"
-                  width="50"
-                  height="50"
-                />
-                <div>
-                  <h6 class="mb-0">Lê Văn C</h6>
-                  <small class="text-muted">Doanh nhân</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Us Brief Section -->
-    <section id="about-brief" class="py-5 bg-light">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 mb-4 mb-lg-0">
-            <img
-              src="images/showroom.jpg"
-              alt="AutoDrive Showroom"
-              class="img-fluid rounded shadow"
-            />
-          </div>
-          <div class="col-lg-6">
-            <h2 class="mb-4">Về AutoDrive</h2>
-            <p>
-              AutoDrive là đại lý ô tô hàng đầu tại Việt Nam với hơn 15 năm kinh
-              nghiệm trong lĩnh vực kinh doanh xe hơi. Chúng tôi tự hào là đối
-              tác chính thức của nhiều thương hiệu ô tô nổi tiếng trên thế giới.
-            </p>
-            <p>
-              Với đội ngũ nhân viên chuyên nghiệp và tận tâm, chúng tôi cam kết
-              mang đến cho khách hàng những sản phẩm chất lượng cao cùng dịch vụ
-              hoàn hảo.
-            </p>
-            <a href="about.html" class="btn btn-primary">Tìm hiểu thêm</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Latest News Section -->
-    <section id="latest-news" class="py-5">
-      <div class="container">
-        <h2 class="text-center mb-5">Tin tức & Sự kiện</h2>
-        <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="card news-card h-100">
-              <img
-                src="images/news1.jpg"
-                class="card-img-top"
-                alt="Tin tức xe hơi"
-              />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Ra mắt dòng xe điện mới nhất từ Tesla
-                </h5>
-                <p class="card-text">
-                  Tesla vừa ra mắt mẫu xe điện mới với phạm vi hoạt động lên đến
-                  600km và nhiều tính năng công nghệ đột phá.
-                </p>
-                <a href="news-detail.html?id=1" class="btn btn-link p-0"
-                  >Đọc tiếp <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-              <div class="card-footer bg-white">
-                <small class="text-muted"
-                  ><i class="far fa-calendar-alt"></i> 15/04/2023</small
-                >
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="card news-card h-100">
-              <img
-                src="images/news2.jpg"
-                class="card-img-top"
-                alt="Sự kiện triển lãm"
-              />
-              <div class="card-body">
-                <h5 class="card-title">
+          <!-- News Content -->
+          <div class="col-lg-8">
+            <article class="news-article">
+              <div class="article-header mb-4">
+                <h2 class="article-title">
                   Triển lãm ô tô quốc tế 2023 sắp diễn ra tại Hà Nội
-                </h5>
-                <p class="card-text">
-                  Triển lãm ô tô lớn nhất năm sẽ được tổ chức vào tháng 6 với sự
-                  tham gia của hơn 50 thương hiệu xe hơi.
-                </p>
-                <a href="news-detail.html?id=2" class="btn btn-link p-0"
-                  >Đọc tiếp <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-              <div class="card-footer bg-white">
-                <small class="text-muted"
-                  ><i class="far fa-calendar-alt"></i> 02/04/2023</small
+                </h2>
+                <div
+                  class="article-meta d-flex flex-wrap align-items-center text-muted mb-3"
                 >
+                  <span class="me-4"
+                    ><i class="far fa-calendar-alt me-1"></i> 15/04/2023</span
+                  >
+                  <span class="me-4"
+                    ><i class="far fa-user me-1"></i> Nguyễn Văn A</span
+                  >
+                  <span class="me-4"
+                    ><i class="far fa-folder me-1"></i> Sự kiện</span
+                  >
+                  <span><i class="far fa-comment me-1"></i> 5 Bình luận</span>
+                </div>
+                <div class="article-featured-image mb-4">
+                  <img
+                    src="images/news-featured.jpg"
+                    alt="Triển lãm ô tô quốc tế 2023"
+                    class="img-fluid rounded"
+                  />
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="card news-card h-100">
-              <img
-                src="images/news3.jpg"
-                class="card-img-top"
-                alt="Khuyến mãi"
-              />
-              <div class="card-body">
-                <h5 class="card-title">
-                  Chương trình khuyến mãi đặc biệt nhân dịp kỷ niệm 15 năm
-                </h5>
-                <p class="card-text">
-                  Nhân dịp kỷ niệm 15 năm thành lập, AutoDrive triển khai nhiều
-                  chương trình ưu đãi hấp dẫn cho khách hàng.
-                </p>
-                <a href="news-detail.html?id=3" class="btn btn-link p-0"
-                  >Đọc tiếp <i class="fas fa-arrow-right"></i
-                ></a>
-              </div>
-              <div class="card-footer bg-white">
-                <small class="text-muted"
-                  ><i class="far fa-calendar-alt"></i> 25/03/2023</small
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="text-center mt-4">
-          <a href="news.html" class="btn btn-outline-primary"
-            >Xem tất cả tin tức</a
-          >
-        </div>
-      </div>
-    </section>
 
-    <!-- Newsletter Section -->
-    <section id="newsletter" class="py-5 bg-primary text-white">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8 text-center">
-            <h3 class="mb-4">Đăng ký nhận tin</h3>
-            <p class="mb-4">
-              Nhận thông tin mới nhất về các mẫu xe, khuyến mãi và sự kiện đặc
-              biệt.
-            </p>
-            <form id="newsletter-form" class="d-flex justify-content-center">
-              <div class="input-group mb-3 newsletter-input">
-                <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Email của bạn"
-                  required
-                />
-                <button class="btn btn-light" type="submit">Đăng ký</button>
+              <div class="article-content">
+                <p class="lead">
+                  Triển lãm ô tô lớn nhất năm sẽ được tổ chức vào tháng 6 với sự
+                  tham gia của hơn 50 thương hiệu xe hơi. Đây là cơ hội để người
+                  yêu xe được chiêm ngưỡng những mẫu xe mới nhất và công nghệ
+                  tiên tiến nhất trong ngành công nghiệp ô tô.
+                </p>
+
+                <p>
+                  Sự kiện dự kiến sẽ thu hút hơn 200.000 lượt khách tham quan và
+                  là nơi ra mắt nhiều mẫu xe mới từ các thương hiệu nổi tiếng
+                  như Mercedes-Benz, BMW, Audi, Toyota, Honda...
+                </p>
+
+                <h3>Thời gian và địa điểm</h3>
+                <p>
+                  Triển lãm ô tô quốc tế 2023 sẽ diễn ra từ ngày 10/06 đến ngày
+                  18/06/2023 tại Trung tâm Hội nghị Quốc gia, Hà Nội. Sự kiện sẽ
+                  mở cửa từ 9:00 đến 20:00 hàng ngày.
+                </p>
+
+                <h3>Các thương hiệu tham gia</h3>
+                <p>
+                  Triển lãm năm nay sẽ có sự tham gia của hơn 50 thương hiệu xe
+                  hơi từ khắp nơi trên thế giới, bao gồm:
+                </p>
+                <ul>
+                  <li>
+                    Các thương hiệu xe sang: Mercedes-Benz, BMW, Audi, Lexus,
+                    Volvo...
+                  </li>
+                  <li>
+                    Các thương hiệu xe phổ thông: Toyota, Honda, Ford, Hyundai,
+                    Kia...
+                  </li>
+                  <li>Các thương hiệu xe điện: Tesla, VinFast, BYD...</li>
+                  <li>
+                    Các thương hiệu xe thể thao: Porsche, Ferrari,
+                    Lamborghini...
+                  </li>
+                </ul>
+
+                <div class="row my-4">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                    <img
+                      src="images/news-detail1.jpg"
+                      alt="Triển lãm ô tô"
+                      class="img-fluid rounded"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <img
+                      src="images/news-detail2.jpg"
+                      alt="Triển lãm ô tô"
+                      class="img-fluid rounded"
+                    />
+                  </div>
+                </div>
+
+                <h3>Các hoạt động nổi bật</h3>
+                <p>
+                  Ngoài việc trưng bày các mẫu xe mới nhất, triển lãm còn có
+                  nhiều hoạt động hấp dẫn khác:
+                </p>
+                <ol>
+                  <li>
+                    <strong>Ra mắt xe mới:</strong> Nhiều mẫu xe mới sẽ được ra
+                    mắt lần đầu tiên tại Việt Nam.
+                  </li>
+                  <li>
+                    <strong>Trải nghiệm lái thử:</strong> Khách tham quan có cơ
+                    hội lái thử các mẫu xe mới nhất.
+                  </li>
+                  <li>
+                    <strong>Công nghệ tương lai:</strong> Khu vực trưng bày các
+                    công nghệ ô tô tiên tiến như xe tự lái, xe điện, kết nối
+                    thông minh...
+                  </li>
+                  <li>
+                    <strong>Hội thảo chuyên đề:</strong> Các buổi hội thảo về xu
+                    hướng phát triển của ngành công nghiệp ô tô.
+                  </li>
+                  <li>
+                    <strong>Chương trình giải trí:</strong> Các tiết mục biểu
+                    diễn, trò chơi và quà tặng hấp dẫn.
+                  </li>
+                </ol>
+
+                <h3>Giá vé và đăng ký</h3>
+                <p>Giá vé tham quan triển lãm:</p>
+                <ul>
+                  <li>Vé thường: 100.000 VNĐ/người</li>
+                  <li>
+                    Vé VIP (bao gồm quà tặng và quyền ưu tiên): 300.000
+                    VNĐ/người
+                  </li>
+                  <li>Miễn phí cho trẻ em dưới 6 tuổi</li>
+                </ul>
+                <p>
+                  Khách tham quan có thể đăng ký mua vé trực tuyến tại website
+                  chính thức của triển lãm hoặc mua trực tiếp tại cổng vào.
+                </p>
+
+                <blockquote class="blockquote my-4 p-4 bg-light">
+                  <p class="mb-0">
+                    "Triển lãm ô tô quốc tế 2023 sẽ là sự kiện lớn nhất trong
+                    năm của ngành công nghiệp ô tô Việt Nam, mang đến cơ hội
+                    tuyệt vời để khách hàng có thể tiếp cận với những công nghệ
+                    mới nhất và xu hướng phát triển của ngành."
+                  </p>
+                  <footer class="blockquote-footer mt-2">
+                    Ông Nguyễn Văn X,
+                    <cite title="Source Title">Trưởng ban tổ chức</cite>
+                  </footer>
+                </blockquote>
+
+                <h3>Kết luận</h3>
+                <p>
+                  Triển lãm ô tô quốc tế 2023 hứa hẹn sẽ là một sự kiện đáng
+                  mong đợi đối với những người yêu xe và quan tâm đến ngành công
+                  nghiệp ô tô. Đây là cơ hội tuyệt vời để cập nhật những xu
+                  hướng mới nhất, trải nghiệm các công nghệ tiên tiến và tìm
+                  hiểu về các mẫu xe sắp ra mắt tại thị trường Việt Nam.
+                </p>
+                <p>
+                  AutoDrive sẽ có gian hàng riêng tại triển lãm với nhiều chương
+                  trình khuyến mãi đặc biệt và quà tặng hấp dẫn. Hãy ghé thăm
+                  gian hàng của chúng tôi tại vị trí A12, Khu A để được tư vấn
+                  và hỗ trợ tốt nhất.
+                </p>
               </div>
-            </form>
+
+              <!-- Article Tags -->
+              <div class="article-tags mt-4">
+                <span class="me-2"><i class="fas fa-tags"></i> Thẻ:</span>
+                <a href="#" class="btn btn-outline-primary btn-sm me-2 mb-2"
+                  >Triển lãm</a
+                >
+                <a href="#" class="btn btn-outline-primary btn-sm me-2 mb-2"
+                  >Ô tô</a
+                >
+                <a href="#" class="btn btn-outline-primary btn-sm me-2 mb-2"
+                  >Sự kiện</a
+                >
+                <a href="#" class="btn btn-outline-primary btn-sm me-2 mb-2"
+                  >Hà Nội</a
+                >
+              </div>
+
+              <!-- Article Share -->
+              <div class="article-share mt-4 p-3 bg-light rounded">
+                <span class="me-3">Chia sẻ bài viết:</span>
+                <a href="#" class="btn btn-primary btn-sm me-2"
+                  ><i class="fab fa-facebook-f"></i> Facebook</a
+                >
+                <a href="#" class="btn btn-info btn-sm me-2 text-white"
+                  ><i class="fab fa-twitter"></i> Twitter</a
+                >
+                <a href="#" class="btn btn-success btn-sm me-2"
+                  ><i class="fab fa-whatsapp"></i> WhatsApp</a
+                >
+                <a href="#" class="btn btn-danger btn-sm"
+                  ><i class="fab fa-pinterest"></i> Pinterest</a
+                >
+              </div>
+
+              <!-- Author Bio -->
+              <div class="author-bio mt-5 p-4 bg-light rounded">
+                <div class="d-flex">
+                  <img
+                    src="images/author.jpg"
+                    alt="Author"
+                    class="rounded-circle me-3"
+                    width="80"
+                    height="80"
+                  />
+                  <div>
+                    <h4>Nguyễn Văn A</h4>
+                    <p class="text-muted mb-2">Biên tập viên</p>
+                    <p>
+                      Nguyễn Văn A là biên tập viên chuyên mục ô tô với hơn 10
+                      năm kinh nghiệm trong lĩnh vực báo chí ô tô. Anh đam mê xe
+                      hơi và thường xuyên tham gia các sự kiện ra mắt xe mới.
+                    </p>
+                    <div class="social-links">
+                      <a href="#" class="me-2"
+                        ><i class="fab fa-facebook-f text-primary"></i
+                      ></a>
+                      <a href="#" class="me-2"
+                        ><i class="fab fa-twitter text-primary"></i
+                      ></a>
+                      <a href="#"
+                        ><i class="fab fa-linkedin-in text-primary"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Related Posts -->
+              <div class="related-posts mt-5">
+                <h3 class="mb-4">Bài viết liên quan</h3>
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow h-100">
+                      <img
+                        src="images/news1.jpg"
+                        class="card-img-top"
+                        alt="Related Post"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          <a href="#" class="text-decoration-none"
+                            >Ra mắt dòng xe điện mới nhất từ Tesla</a
+                          >
+                        </h5>
+                        <p class="card-text small text-muted">
+                          <i class="far fa-calendar-alt me-1"></i> 10/04/2023
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow h-100">
+                      <img
+                        src="images/news2.jpg"
+                        class="card-img-top"
+                        alt="Related Post"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          <a href="#" class="text-decoration-none"
+                            >Chương trình khuyến mãi đặc biệt nhân dịp kỷ niệm
+                            15 năm</a
+                          >
+                        </h5>
+                        <p class="card-text small text-muted">
+                          <i class="far fa-calendar-alt me-1"></i> 05/04/2023
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow h-100">
+                      <img
+                        src="images/news3.jpg"
+                        class="card-img-top"
+                        alt="Related Post"
+                      />
+                      <div class="card-body">
+                        <h5 class="card-title">
+                          <a href="#" class="text-decoration-none"
+                            >Xu hướng ô tô nổi bật năm 2023</a
+                          >
+                        </h5>
+                        <p class="card-text small text-muted">
+                          <i class="far fa-calendar-alt me-1"></i> 01/04/2023
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Comments Section -->
+              <div class="comments-section mt-5">
+                <h3 class="mb-4">Bình luận (5)</h3>
+
+                <!-- Comment List -->
+                <div class="comment-list">
+                  <!-- Comment 1 -->
+                  <div class="comment mb-4 p-4 bg-light rounded">
+                    <div class="d-flex">
+                      <img
+                        src="images/user1.jpg"
+                        alt="User"
+                        class="rounded-circle me-3"
+                        width="60"
+                        height="60"
+                      />
+                      <div class="flex-grow-1">
+                        <div
+                          class="d-flex justify-content-between align-items-center mb-2"
+                        >
+                          <h5 class="mb-0">Trần Văn B</h5>
+                          <small class="text-muted">15/04/2023, 10:30</small>
+                        </div>
+                        <p>
+                          Tôi rất mong chờ triển lãm này. Năm ngoái tôi đã tham
+                          gia và thực sự ấn tượng với quy mô và chất lượng của
+                          sự kiện.
+                        </p>
+                        <div class="comment-actions">
+                          <a href="#" class="me-3"
+                            ><i class="far fa-thumbs-up me-1"></i> Thích (3)</a
+                          >
+                          <a href="#"
+                            ><i class="far fa-comment me-1"></i> Trả lời</a
+                          >
+                        </div>
+
+                        <!-- Reply -->
+                        <div
+                          class="comment-reply mt-3 ms-4 p-3 bg-white rounded"
+                        >
+                          <div class="d-flex">
+                            <img
+                              src="images/user2.jpg"
+                              alt="User"
+                              class="rounded-circle me-3"
+                              width="50"
+                              height="50"
+                            />
+                            <div>
+                              <div
+                                class="d-flex justify-content-between align-items-center mb-2"
+                              >
+                                <h6 class="mb-0">Lê Thị C</h6>
+                                <small class="text-muted"
+                                  >15/04/2023, 11:15</small
+                                >
+                              </div>
+                              <p>
+                                Tôi cũng vậy! Bạn có biết giá vé năm nay có thay
+                                đổi gì không?
+                              </p>
+                              <div class="comment-actions">
+                                <a href="#" class="me-3"
+                                  ><i class="far fa-thumbs-up me-1"></i> Thích
+                                  (1)</a
+                                >
+                                <a href="#"
+                                  ><i class="far fa-comment me-1"></i> Trả
+                                  lời</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Comment 2 -->
+                  <div class="comment mb-4 p-4 bg-light rounded">
+                    <div class="d-flex">
+                      <img
+                        src="images/user3.jpg"
+                        alt="User"
+                        class="rounded-circle me-3"
+                        width="60"
+                        height="60"
+                      />
+                      <div>
+                        <div
+                          class="d-flex justify-content-between align-items-center mb-2"
+                        >
+                          <h5 class="mb-0">Phạm Văn D</h5>
+                          <small class="text-muted">15/04/2023, 14:45</small>
+                        </div>
+                        <p>
+                          Tôi đặc biệt quan tâm đến các mẫu xe điện sẽ được
+                          trưng bày tại triển lãm. Hy vọng sẽ có nhiều mẫu xe
+                          mới và giá cả hợp lý hơn.
+                        </p>
+                        <div class="comment-actions">
+                          <a href="#" class="me-3"
+                            ><i class="far fa-thumbs-up me-1"></i> Thích (5)</a
+                          >
+                          <a href="#"
+                            ><i class="far fa-comment me-1"></i> Trả lời</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Comment 3 -->
+                  <div class="comment mb-4 p-4 bg-light rounded">
+                    <div class="d-flex">
+                      <img
+                        src="images/user4.jpg"
+                        alt="User"
+                        class="rounded-circle me-3"
+                        width="60"
+                        height="60"
+                      />
+                      <div>
+                        <div
+                          class="d-flex justify-content-between align-items-center mb-2"
+                        >
+                          <h5 class="mb-0">Nguyễn Thị E</h5>
+                          <small class="text-muted">16/04/2023, 09:20</small>
+                        </div>
+                        <p>
+                          Có ai biết có chương trình ưu đãi đặc biệt nào khi mua
+                          xe tại triển lãm không? Tôi đang có kế hoạch mua một
+                          chiếc SUV mới.
+                        </p>
+                        <div class="comment-actions">
+                          <a href="#" class="me-3"
+                            ><i class="far fa-thumbs-up me-1"></i> Thích (2)</a
+                          >
+                          <a href="#"
+                            ><i class="far fa-comment me-1"></i> Trả lời</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Comment Form -->
+                <div class="comment-form mt-5">
+                  <h4 class="mb-4">Để lại bình luận</h4>
+                  <form>
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Họ và tên"
+                          required
+                        />
+                      </div>
+                      <div class="col-md-6">
+                        <input
+                          type="email"
+                          class="form-control"
+                          placeholder="Email"
+                          required
+                        />
+                      </div>
+                      <div class="col-12">
+                        <textarea
+                          class="form-control"
+                          rows="5"
+                          placeholder="Nội dung bình luận"
+                          required
+                        ></textarea>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-primary">
+                          Gửi bình luận
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="col-lg-4">
+            <!-- Search Box -->
+            <div class="card border-0 shadow mb-4">
+              <div class="card-body p-4">
+                <h4 class="card-title mb-3">Tìm kiếm</h4>
+                <form class="search-form">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Nhập từ khóa..."
+                    />
+                    <button class="btn btn-primary" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="card border-0 shadow mb-4">
+              <div class="card-body p-4">
+                <h4 class="card-title mb-3">Danh mục</h4>
+                <ul class="list-group list-group-flush">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <a href="#" class="text-decoration-none">Tin tức xe</a>
+                    <span class="badge bg-primary rounded-pill">12</span>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <a href="#" class="text-decoration-none">Đánh giá xe</a>
+                    <span class="badge bg-primary rounded-pill">8</span>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <a href="#" class="text-decoration-none">Công nghệ</a>
+                    <span class="badge bg-primary rounded-pill">6</span>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <a href="#" class="text-decoration-none">Khuyến mãi</a>
+                    <span class="badge bg-primary rounded-pill">4</span>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center"
+                  >
+                    <a href="#" class="text-decoration-none">Mẹo hay</a>
+                    <span class="badge bg-primary rounded-pill">7</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Recent Posts -->
+            <div class="card border-0 shadow mb-4">
+              <div class="card-body p-4">
+                <h4 class="card-title mb-3">Bài viết gần đây</h4>
+                <div class="recent-posts">
+                  <!-- Recent Post 1 -->
+                  <div class="recent-post d-flex mb-3">
+                    <img
+                      src="images/news-thumb1.jpg"
+                      alt="Recent Post"
+                      class="recent-post-img me-3"
+                      width="80"
+                      height="60"
+                    />
+                    <div>
+                      <h6 class="mb-1">
+                        <a href="#" class="text-decoration-none"
+                          >Ra mắt dòng xe điện mới nhất từ Tesla</a
+                        >
+                      </h6>
+                      <small class="text-muted"
+                        ><i class="far fa-calendar-alt me-1"></i>
+                        10/04/2023</small
+                      >
+                    </div>
+                  </div>
+                  <!-- Recent Post 2 -->
+                  <div class="recent-post d-flex mb-3">
+                    <img
+                      src="images/news-thumb2.jpg"
+                      alt="Recent Post"
+                      class="recent-post-img me-3"
+                      width="80"
+                      height="60"
+                    />
+                    <div>
+                      <h6 class="mb-1">
+                        <a href="#" class="text-decoration-none"
+                          >Chương trình khuyến mãi đặc biệt nhân dịp kỷ niệm 15
+                          năm</a
+                        >
+                      </h6>
+                      <small class="text-muted"
+                        ><i class="far fa-calendar-alt me-1"></i>
+                        05/04/2023</small
+                      >
+                    </div>
+                  </div>
+                  <!-- Recent Post 3 -->
+                  <div class="recent-post d-flex mb-3">
+                    <img
+                      src="images/news-thumb3.jpg"
+                      alt="Recent Post"
+                      class="recent-post-img me-3"
+                      width="80"
+                      height="60"
+                    />
+                    <div>
+                      <h6 class="mb-1">
+                        <a href="#" class="text-decoration-none"
+                          >Xu hướng ô tô nổi bật năm 2023</a
+                        >
+                      </h6>
+                      <small class="text-muted"
+                        ><i class="far fa-calendar-alt me-1"></i>
+                        01/04/2023</small
+                      >
+                    </div>
+                  </div>
+                  <!-- Recent Post 4 -->
+                  <div class="recent-post d-flex">
+                    <img
+                      src="images/news-thumb4.jpg"
+                      alt="Recent Post"
+                      class="recent-post-img me-3"
+                      width="80"
+                      height="60"
+                    />
+                    <div>
+                      <h6 class="mb-1">
+                        <a href="#" class="text-decoration-none"
+                          >Những lưu ý khi bảo dưỡng xe trong mùa mưa</a
+                        >
+                      </h6>
+                      <small class="text-muted"
+                        ><i class="far fa-calendar-alt me-1"></i>
+                        28/03/2023</small
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="card border-0 shadow mb-4">
+              <div class="card-body p-4">
+                <h4 class="card-title mb-3">Thẻ</h4>
+                <div class="tags">
+                  <a href="#" class="btn btn-outline-primary btn-sm mb-2 me-2"
+                    >Xe điện</a
+                  >
+                  <a href="#" class="btn btn-outline-primary btn-sm mb-2 me-2"
+                    >SUV</a
+                  >
+                  <a href="#" class="btn btn-outline-primary btn-sm mb-2 me-2"
+                    >Sedan</a
+                  >
+                  <a href="#" class="btn btn-outline-primary btn-sm mb-2 me-2"
+                    >Công nghệ</a
+                  >
+                  <a href="#" class="btn btn-outline-primary btn-sm mb-2 me-2"
+                    >Bảo dưỡng</a
+                  >
+                  <a href="#" class="btn btn-outline-primary btn-sm mb-2 me-2"
+                    >Khuyến mãi</a
+                  >
+                  <a href="#" class="btn btn-outline-primary btn-sm mb-2 me-2"
+                    >Triển lãm</a
+                  >
+                  <a href="#" class="btn btn-outline-primary btn-sm mb-2 me-2"
+                    >Xe sang</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="card border-0 shadow">
+              <div class="card-body p-4">
+                <h4 class="card-title mb-3">Đăng ký nhận tin</h4>
+                <p>
+                  Nhận thông tin mới nhất về các mẫu xe, khuyến mãi và sự kiện
+                  đặc biệt.
+                </p>
+                <form class="newsletter-form">
+                  <div class="mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Email của bạn"
+                      required
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-primary w-100">
+                    Đăng ký
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -741,7 +978,11 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="btn btn-primary back-to-top" id="back-to-top">
+    <a
+      href="#"
+      class="btn btn-primary back-to-top d-flex justify-content-center align-items-center"
+      id="back-to-top"
+    >
       <i class="fas fa-arrow-up"></i>
     </a>
 
@@ -749,5 +990,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/language-switcher.js"></script>
   </body>
 </html>

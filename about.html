@@ -59,49 +59,82 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Trang chủ</a>
+                <a class="nav-link" href="index.html" data-lang="home"
+                  >Trang chủ</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="cars.html">Danh sách xe</a>
+                <a class="nav-link" href="cars.html" data-lang="cars"
+                  >Danh sách xe</a
+                >
               </li>
               <li class="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="nav-link"
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
+                  data-lang="categories"
                 >
                   Danh mục xe
                 </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" href="cars.html?type=sedan"
+                    <a
+                      class="dropdown-item"
+                      href="cars.html?type=sedan"
+                      data-lang="sedan"
                       >Sedan</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="cars.html?type=suv">SUV</a>
+                    <a
+                      class="dropdown-item"
+                      href="cars.html?type=suv"
+                      data-lang="suv"
+                      >SUV</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="cars.html?type=hatchback"
+                    <a
+                      class="dropdown-item"
+                      href="cars.html?type=hatchback"
+                      data-lang="hatchback"
                       >Hatchback</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="cars.html?type=luxury"
+                    <a
+                      class="dropdown-item"
+                      href="cars.html?type=luxury"
+                      data-lang="luxury"
                       >Xe sang</a
                     >
                   </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="about.html">Giới thiệu</a>
+                <a class="nav-link active" href="about.html" data-lang="about"
+                  >Giới thiệu</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="news.html">Tin tức</a>
+                <a class="nav-link" href="news.html" data-lang="news"
+                  >Tin tức</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Liên hệ</a>
+                <a class="nav-link" href="contact.html" data-lang="contact"
+                  >Liên hệ</a
+                >
+              </li>
+              <li class="nav-item">
+                <button
+                  id="language-switcher"
+                  class="btn btn-sm btn-outline-light ms-2"
+                >
+                  EN <i class="fas fa-globe ms-1"></i>
+                </button>
               </li>
             </ul>
           </div>
@@ -812,7 +845,11 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="btn btn-primary back-to-top" id="back-to-top">
+    <a
+      href="#"
+      class="btn btn-primary back-to-top d-flex justify-content-center align-items-center"
+      id="back-to-top"
+    >
       <i class="fas fa-arrow-up"></i>
     </a>
 
@@ -821,5 +858,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/about.js"></script>
+    <script src="js/language-switcher.js"></script>
   </body>
 </html>
